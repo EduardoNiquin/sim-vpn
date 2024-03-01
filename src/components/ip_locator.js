@@ -4,7 +4,6 @@ async function obtenerIpYGenerarHtml() {
       const dataIp = await response.json();
       const ip = dataIp.ip;
   
-
       const apiKey = process.env.VPN_API_KEY; // Usa la variable de entorno
       const responseVpn = await fetch(`https://vpnapi.io/api/${ip}?key=${apiKey}`);
       const dataVpn = await responseVpn.json();
@@ -30,6 +29,7 @@ async function obtenerIpYGenerarHtml() {
   
   async function verificarVPN(ip) {
     try {
+      const apiKey = process.env.VPN_API_KEY;
       const response = await fetch(`https://vpnapi.io/api/${ip}?key=${apiKey}`);
       const data = await response.json();
       return data.security.vpn ? "PROTEGIDO" : "DESPROTEGIDO";
