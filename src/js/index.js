@@ -1,5 +1,5 @@
 //require para variables de entorno
-require('dotenv').config();
+//require('dotenv').config();
 
 
 // Importar una hoja de estilo CSS
