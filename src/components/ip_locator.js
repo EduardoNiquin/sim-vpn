@@ -20,7 +20,11 @@ async function obtenerIpYGenerarHtml() {
       `;
     } catch (error) {
       console.error('Error al obtener la información:', error);
-      return '<div>Error al obtener la información</div>';
+      return `
+      <div class="ip-locator-bar">
+        <span>Tu IP: 0.0.0.0</span> · <span>ISP: Default</span> · <span>Tu estado: Default</span>
+      </div>
+    `;
     }
   }
   
