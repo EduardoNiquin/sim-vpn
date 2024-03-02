@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin'); // Importar el plugin
+const glob = require('glob-all'); // Para encontrar archivos a analizar
+
 require('dotenv').config();
 
 
@@ -15,9 +18,26 @@ module.exports = {
       template: './src/index.html', // Ubicación de tu archivo index.html en src
       filename: 'index.html' // Nombre del archivo de salida
     }),
-    new webpack.DefinePlugin({
+    new webpack.DefinePlugin({ // DEFINE LAS VARIABLES DE ENTORNO
       'process.env.VPN_API_KEY': JSON.stringify(process.env.VPN_API_KEY),
-    })
+    }),
+    new PurgeCSSPlugin({ //PLUGIN PARA ELIMINAR CSS NO UTILIZADO
+      paths: glob.sync([
+        path.join(__dirname, 'src/**/*.html'),
+        path.join(__dirname, 'src/**/*.js')
+      ], { nodir: true }),
+      extractors: [
+        {
+          extractor: class {
+            static extract(content) {
+              return content.match(/[\w-/:]+(?<!:)/g) || []; 
+            }
+          },
+          extensions: ['html', 'js']
+        }
+      ]
+    }),
+    
   ],
   module: {
     rules: [

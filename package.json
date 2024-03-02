@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "css-loader": "^6.10.0",
+    "glob-all": "^3.3.1",
     "html-webpack-plugin": "^5.6.0",
+    "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
