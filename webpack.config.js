@@ -50,18 +50,38 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/[name][ext]', // Carpeta de salida para las imágenes
         },
         use: [
+          'file-loader',
           {
-            loader: 'file-loader',
+            loader: 'image-webpack-loader',
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/', // Carpeta de salida para las imágenes
-              publicPath: 'assets/' // Ruta pública para las imágenes
+              publicPath: 'assets/', // Ruta pública para las imágenes
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // opciones para png (optimización) a través de mozpng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.75],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp options
+              webp: {
+                quality: 75
+              },
             },
           },
         ],

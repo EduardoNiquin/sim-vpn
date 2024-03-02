@@ -10,7 +10,11 @@ const hero = `
                     <p>Some text..</p>
             </div>
             <div class="col">
-                <img data-src="./assets/stock-photo.png" class="lazyload" alt="Avatar" style="width:100%" />
+            <picture>
+                <source type="image/webp" data-srcset="./assets/stock-photo.webp" class="lazyload">
+                <source type="image/png" data-srcset="./assets/stock-photo.png" class="lazyload">
+                <img data-src="./assets/stock-photo.png" alt="Avatar" class="lazyload" style="width:100%">
+            </picture>
             </div>
         </div>
     </div>
