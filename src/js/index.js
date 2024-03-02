@@ -1,3 +1,5 @@
+// Importar lazyloading para las imágenes
+import 'lazysizes';
 // Importar una hoja de estilo CSS
 import '../styles/main.scss';
 // Importar estilos de Bootstrap
