@@ -41,16 +41,33 @@ module.exports = {
   ],
   module: {
     rules: [
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name][ext]', // Carpeta de salida para las imágenes
         },
-        {
-          test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
-        },
-        // Agrega más reglas para otros tipos de archivos si es necesario
-      ],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/', // Carpeta de salida para las imágenes
+              publicPath: 'assets/' // Ruta pública para las imágenes
+            },
+          },
+        ],
+      },
+      // Agrega más reglas para otros tipos de archivos si es necesario
+    ],
   },
   performance: {
     maxAssetSize: 500000, // en bytes
