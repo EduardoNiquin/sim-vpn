@@ -1,5 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+require('dotenv').config();
 
 
 module.exports = {
@@ -12,6 +14,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html', // Ubicación de tu archivo index.html en src
       filename: 'index.html' // Nombre del archivo de salida
+    }),
+    new webpack.DefinePlugin({
+      'process.env.VPN_API_KEY': JSON.stringify(process.env.VPN_API_KEY),
     })
   ],
   module: {
