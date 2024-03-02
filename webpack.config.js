@@ -36,5 +36,10 @@ module.exports = {
     maxAssetSize: 500000, // en bytes
     maxEntrypointSize: 500000, // en bytes
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
+  },
   // Otras configuraciones de Webpack pueden ir aquí
 };

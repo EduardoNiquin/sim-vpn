@@ -26,18 +26,6 @@ async function obtenerIpYGenerarHtml() {
     `;
     }
   }
-  
-  async function verificarVPN(ip) {
-    try {
-      const apiKey = process.env.VPN_API_KEY;
-      const response = await fetch(`https://vpnapi.io/api/${ip}?key=${apiKey}`);
-      const data = await response.json();
-      return data.security.vpn ? "PROTEGIDO" : "DESPROTEGIDO";
-    } catch (error) {
-      console.error('Error al verificar la VPN:', error);
-      return "DESPROTEGIDO";
-    }
-  }
-  
-  export { obtenerIpYGenerarHtml, verificarVPN };
+
+  export { obtenerIpYGenerarHtml };
   
