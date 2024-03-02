@@ -10,7 +10,7 @@ const hero = `
                     <p>Some text..</p>
             </div>
             <div class="col">
-                <img src="./assets/stock-photo.jpg" alt="Avatar" style="width:100%" />
+                <img src="./assets/stock-photo.png" alt="Avatar" style="width:100%" />
             </div>
         </div>
     </div>
