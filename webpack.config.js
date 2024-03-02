@@ -56,7 +56,6 @@ module.exports = {
           filename: 'assets/[name][ext]', // Carpeta de salida para las imágenes
         },
         use: [
-          'file-loader',
           {
             loader: 'image-webpack-loader',
             options: {
@@ -72,7 +71,7 @@ module.exports = {
                 enabled: false,
               },
               pngquant: {
-                quality: [0.65, 0.75],
+                quality: [0.10, 0.15],
                 speed: 4
               },
               gifsicle: {
@@ -80,7 +79,7 @@ module.exports = {
               },
               // the webp options
               webp: {
-                quality: 75
+                quality: 10
               },
             },
           },
