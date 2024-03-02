@@ -16,6 +16,7 @@ import 'bootstrap';
 
 import navbar from '@/components/navbar.js';
 import { obtenerIpYGenerarHtml } from '@/components/ip_locator.js';
+import hero from '@/components/hero.js';
 
 // Selecciona el contenedor donde quieres insertar la navbar
 const navbarContainer = document.getElementById('NAVBAR_COMPONENT');
@@ -32,6 +33,15 @@ async function mostrarIpLocator() {
 }
 
 document.addEventListener('DOMContentLoaded', mostrarIpLocator);
+
+// Selecciona el contenedor donde quieres insertar la navbar
+const heroContainer = document.getElementById('HERO_COMPONENT');
+if (heroContainer) {
+    //navbarContainer.innerHTML = navbar; INNETHTML ES PARA PONERLO DENTRO
+    heroContainer.outerHTML = hero; // OUTERHTML ES PARA PONERLO FUERA
+} else {
+    console.error('El contenedor de la hero section no fue encontrado.');
+}
 
 /*COMPONENTS */
 
