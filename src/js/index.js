@@ -6,7 +6,9 @@ import '../styles/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Importar JavaScript de Bootstrap
 import 'bootstrap';
-
+// Importar Vercel Speed Insights
+import { injectSpeedInsights } from '@vercel/speed-insights';
+injectSpeedInsights();
 
 
 
