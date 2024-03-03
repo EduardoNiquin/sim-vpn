@@ -61,7 +61,15 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/', // Carpeta de salida para las imágenes
-              publicPath: 'assets/', // Ruta pública para las imágenes
+              publicPath: 'assets/',
+              // Modificar la configuración para separar por tipo de imagen
+              discriminator: (file) => {
+                if (file.mimetype.startsWith('image/svg')) {
+                  return 'svg';
+                } else {
+                  return 'images';
+                }
+              }, // Ruta pública para las imágenes
               mozjpeg: {
                 progressive: true,
                 quality: 65
