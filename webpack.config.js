@@ -50,7 +50,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/[name][ext]', // Carpeta de salida para las imágenes
@@ -92,6 +92,11 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        // Regla para SVG - Utiliza @svgr/webpack para importar SVGs como componentes
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'svg-url-loader'],
       },
       // Agrega más reglas para otros tipos de archivos si es necesario
     ],
