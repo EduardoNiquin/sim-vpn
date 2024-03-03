@@ -37,3 +37,7 @@ const navbar = `
     </nav>
 `;
 export default navbar;
+
+/* 
+background: linear-gradient(60deg, rgb(26 67 89) 0%, rgb(110 157 187) 100%);
+*/
